@@ -25,12 +25,19 @@ public class TestNGBase {
 	
 		public WebDriver driver;
 		@BeforeMethod(alwaysRun=true)
-		@Parameters("browser")
+		@Parameters("browsers")
 	
 		public void initializeBrowser(String browser) throws IOException {
+			try {
+				
+			
 			prop=new Properties();
 			file=new FileInputStream(Constant.configfile);
 			prop.load(file);
+			} catch(Exception e)
+			{
+				System.out.println(e);
+			}
 			if(browser.equalsIgnoreCase("chrome")) {
 				driver = new ChromeDriver();
 			}
@@ -41,7 +48,6 @@ public class TestNGBase {
 				WebDriverManager.edgedriver();
 				driver=new EdgeDriver();
 			}
-			driver=new ChromeDriver();
 			 // initialize web driver (CHROME HERE)
 		//	driver=new FirefoxDriver(); call browser Fire fox
 		  //  driver=new EdgeDriver();

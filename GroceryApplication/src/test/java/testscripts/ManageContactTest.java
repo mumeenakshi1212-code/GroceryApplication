@@ -15,28 +15,24 @@ import utilities.RandomDataUtility;
 
 @Test
 public class ManageContactTest extends TestNGBase {
-	
-	HomePage homepage1;
+
+	HomePage home;
 	ManageContactPage contactpage;
-	
-	@Test(description ="user is able to click action button")
-	public void verifyWhetherUserIsAbleToclickManageContactButton(String mobilenumber) throws IOException
-	{
-	 String usernamevalue = ExcelUtility.readStringData(0, 0, "LoginPage");
-	 String passwordvalue = ExcelUtility.readStringData(0, 1, "LoginPage");
+
+	@Test(description = "user is able to click action button")
+	public void verifyWhetherUserIsAbleToclickManageContactButton() throws IOException {
+		String usernamevalue = ExcelUtility.readStringData(0, 0, "LoginPage");
+		String passwordvalue = ExcelUtility.readStringData(0, 1, "LoginPage");
 		Loginpage loginpage = new Loginpage(driver);
-		loginpage.verifyValidUsernameonUsernamefield(usernamevalue).verifyValidPasswordonPasswordfield(passwordvalue);
-		homepage1=loginpage.clickLoginButton();		
-		
-		homepage1.clickcontactmoreinfo();
-		
-		contactpage.actionButton().enterPhonenNumber(mobilenumber).clickUpdatebutton();
-		RandomDataUtility randomdata = new RandomDataUtility();
-		contactpage=enterAddress(addressfield);
-		String mobilenumber1 = randomdata.mobileNumber();
-		String addressfield1 = ExcelUtility.readStringData(0, 0, "Contact Us Informations");
-		
-		Assert.assertTrue(contactpage.isUpdateSuccessfully(),Constant.contactbutton);
+		loginpage.verifyValidUsernameonUsernamefield(usernamevalue).verifyValidPasswordonPasswordfield(passwordvalue)
+				.clickLoginButton();
+		contactpage = home.clickcontactmoreinfo();
+		RandomDataUtility random = new RandomDataUtility();
+		String newpasswordvalue = random.mobileNumber();
+		String newemail = random.randomemail();
+		contactpage.clickedit().clearphe().phne(newpasswordvalue).clearemail().email(newemail).clickupdate();
+
+		Assert.assertTrue(contactpage.isUpdateSuccessfully(), Constant.contactbutton);
 	}
 
 }

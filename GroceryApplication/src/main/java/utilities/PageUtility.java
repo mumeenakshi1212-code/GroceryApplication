@@ -6,13 +6,15 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 
-public class PageUtility {
-	
+public class PageUtility {// its a page helper class
+
 	public WebDriver driver;
+
 	public void selectDragDropWithValue(WebElement element, String value) {
 		Select object = new Select(element);
 		object.selectByValue(value);
 	}
+
 	public void selectDragDropWithIndex(WebElement element, int value) {
 		Select object = new Select(element);
 		object.selectByIndex(value);
@@ -27,8 +29,9 @@ public class PageUtility {
 		return radiobutton.isSelected();
 
 	}
-	public void clickjavascript(WebElement element) {
-		JavascriptExecutor js = (JavascriptExecutor)driver;
+
+	public void clickjavascript(WebDriver driver, WebElement element) {
+		JavascriptExecutor js = (JavascriptExecutor) driver;
 		js.executeScript("arguments[0].click();", element);
 	}
 

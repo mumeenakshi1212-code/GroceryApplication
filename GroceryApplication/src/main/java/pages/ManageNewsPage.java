@@ -30,8 +30,6 @@ public class ManageNewsPage {
 	WebElement alert;
 	@FindBy(xpath = "//h4[text()='Search Manage News']")
 	WebElement newstextdispalyed;
-	
-	
 
 	public ManageNewsPage clickNewButton() {
 		addnewsbutton.click();
@@ -66,12 +64,10 @@ public class ManageNewsPage {
 	public boolean isalertDisplayed() {
 		return alert.isDisplayed();
 	}
-	
-	
-	 public String newspage() {
-		 return newstextdispalyed.getText();
-		  
-	 }
 
-	 
+	public String newspage() {
+		return newstextdispalyed.getText();
+
+	}
+
 }

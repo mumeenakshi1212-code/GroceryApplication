@@ -1,5 +1,7 @@
 package constant;
 
+//values are not changing while the prgm runs and assertion msgs are added here
+
 public class Constant {
 
 	public static final String TESTDATA=System.getProperty("user.dir")+"\\src\\test\\resources\\test_data.xlsx";
@@ -16,7 +18,7 @@ public class Constant {
 	public static final String newadduser="user is able to search adduser";
 	public static final String contactbutton="user is able to click action button";
 	public static final String addnews="User is able to add new news";
-	
+	public static final String searchnews="Search alert is not displayed";
 	
 	
 }
