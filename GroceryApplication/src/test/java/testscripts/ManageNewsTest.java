@@ -18,19 +18,22 @@ public class ManageNewsTest extends TestNGBase {
 	HomePage homepage1;
 	ManageNewsPage managenews;
 
-	@Test(description = "User is able to add new news")
+	@Test(description="user is trying to add new news")
 	public void verifyWhetherUserIsAbleToAddNewNews() throws IOException {
-		String usernamevalue = ExcelUtility.readStringData(0, 0, "LoginPage");
-		String passwordvalue = ExcelUtility.readStringData(0, 1, "LoginPage");
+		String usernamevalue = ExcelUtility.readStringData(0,0,"LoginPage");
+		String passwordvalue = ExcelUtility.readStringData(0,1,"LoginPage");
+		
 		Loginpage loginpage = new Loginpage(driver);
 		loginpage.verifyValidUsernameonUsernamefield(usernamevalue).verifyValidPasswordonPasswordfield(passwordvalue);
-		homepage1 = loginpage.clickLoginButton();
-		managenews = homepage1.clickOnMoreInfoNews();
-
-		String usernamevalue1 = ExcelUtility.readStringData(0, 0, "ManageNews");
-		managenews.clickNewButton().addnewsinfield(usernamevalue1).clickOnAdd();
-
-		Assert.assertTrue(managenews.isalertDisplayed(), Constant.addnews);
+		homepage1=loginpage.clickLoginButton();
+		managenews=homepage1.clickOnMoreInfoNews();
+		String addnews = ExcelUtility.readStringData(0,0,"ManageNews");
+		managenews.clickNewButton().addnewsinfield(addnews).clickOnAdd();
+		
+		Boolean alertdisplay=managenews.isalertDisplayed();
+		System.out.println(alertdisplay);
+		Assert.assertTrue(alertdisplay,Constant.newsaddingerror);
+		
 	}
 
 	@Test(description = "user is able to search added news")
@@ -42,14 +45,11 @@ public class ManageNewsTest extends TestNGBase {
 				.verifyValidPasswordonPasswordfield(passwordvalue1);
 		homepage1 = loginpage1.clickLoginButton();
 		managenews = homepage1.clickOnMoreInfoNews();
-
-		RandomDataUtility randomdata = new RandomDataUtility();
-
-		managenews.clickSearch().clickSearchnews();
-
-		boolean alertDisplayed = managenews.isalertDisplayed();
-		Assert.assertTrue(alertDisplayed, Constant.searchnews);
-
+		String addnews = ExcelUtility.readStringData(0,0,"ManageNews");
+		managenews.clickSearch().serachNews(addnews).clickSearchnews();
+		String expected="Search Manage News";
+		String actual=managenews.newspage();
+		Assert.assertEquals(actual,expected ,Constant.newssearcherror);
 	}
 
 }

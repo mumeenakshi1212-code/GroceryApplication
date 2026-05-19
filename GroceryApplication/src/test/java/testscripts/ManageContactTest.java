@@ -31,7 +31,6 @@ public class ManageContactTest extends TestNGBase {
 		String newpasswordvalue = random.mobileNumber();
 		String newemail = random.randomemail();
 		contactpage.clickedit().clearphe().phne(newpasswordvalue).clearemail().email(newemail).clickupdate();
-
 		Assert.assertTrue(contactpage.isUpdateSuccessfully(), Constant.contactbutton);
 	}
 

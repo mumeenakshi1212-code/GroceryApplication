@@ -6,8 +6,7 @@
 	<test thread-count="5" name="Test">
 		<classes>
 
-			<class name="testscripts.HomeTest">
-
+			<class name="testscripts.ManageContactTest">
 			</class>
 		</classes>
 	</test> <!-- Test -->

@@ -24,7 +24,7 @@ public class HomePage {
 	private WebElement logoutbtn;
 	@FindBy(xpath = "//a[contains(@href,'com/admin/list-admin')and @class='small-box-footer']")
 	private WebElement moreinfoobutton;
-	@FindBy(xpath = "//a[contains(@href,'com/admin/list-news')and @class=\"small-box-footer\"]")
+	@FindBy(xpath = "//a[contains(@href,'com/admin/list-news')and @class='small-box-footer']")
 	private WebElement moreinfonews;
 	@FindBy(xpath = "//b[text()='7rmart supermarket']")
 	WebElement text;

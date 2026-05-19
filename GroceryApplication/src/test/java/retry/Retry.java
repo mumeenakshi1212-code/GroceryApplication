@@ -7,10 +7,9 @@ import org.testng.ITestResult;
 
 public class Retry implements IRetryAnalyzer {
 
-	// in flaky test case re-excecution chance providing mechanism
+	//used to provide a re-execution chance for flaky test cases
 	// flaky test case (network issue , connection issue)
-	// interface used is IRetryAnalyzer - used to automatically retry failed test
-	// cases
+	// interface used is IRetryAnalyzer - used to automatically retry failed test cases
 
 	private static final Logger LOG = (Logger) LogManager.getLogger("Retry.class");
 	private static final int maxTry = 2;

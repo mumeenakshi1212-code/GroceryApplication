@@ -64,10 +64,10 @@ public class ManageNewsPage {
 	public boolean isalertDisplayed() {
 		return alert.isDisplayed();
 	}
-
-	public String newspage() {
-		return newstextdispalyed.getText();
-
-	}
+	
+	 public String newspage() {
+		 return newstextdispalyed.getText();
+		  
+	 }
 
 }
